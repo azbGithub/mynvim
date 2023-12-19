@@ -13,7 +13,7 @@ set.scrolloff = 8
 set.sidescrolloff = 8
 set.ignorecase = true
 set.smartcase = true
-set.cmdheight = 2
+set.cmdheight = 1
 set.backup = false
 set.writebackup = false
 set.swapfile = false
@@ -27,4 +27,3 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		})
 	end,
 })
-
