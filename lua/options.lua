@@ -17,6 +17,13 @@ set.cmdheight = 1
 set.backup = false
 set.writebackup = false
 set.swapfile = false
+set.autoindent = true
+set.smartindent = true
+set.ignorecase = true
+set.smartcase = true
+set.termguicolors = true
+vim.g.completeopt = "menu,menuone,noinsert,noselect"
+set.wildmenu = true
 vim.g.encoding = "utf-8"
 vim.g.fileencoding = "utf-8"
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {

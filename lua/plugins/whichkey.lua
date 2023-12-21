@@ -5,6 +5,23 @@ return {
 		vim.o.timeout = true
 		vim.o.timeoutlen = 300
 	end,
+	config = function()
+		local wk = require("which-key")
+		wk.register({
+			["<leader>b"] = { name = "+buffer" },
+			["<leader>c"] = { name = "+code action" },
+			["<leader>g"] = { name = "+git" },
+			["<leader>r"] = { name = "+code" },
+			["<leader>m"] = { name = "+format" },
+			["<leader>x"] = { name = "+trouble" },
+			["<leader>f"] = { name = "+telescope" },
+			["<leader>u"] = { name = "+todo" },
+			["<leader>t"] = { name = "+terminal" },
+			-- FIX: why no action
+			["<leader>p"] = { name = "+swap_two" },
+			["<leader>n"] = { name = "+swap_one" },
+		})
+	end,
 	opts = {
 		{
 			plugins = {
@@ -79,4 +96,3 @@ return {
 		},
 	},
 }
-
