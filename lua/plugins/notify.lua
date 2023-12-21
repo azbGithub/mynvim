@@ -19,7 +19,7 @@ return {
 		render = "default",
 		max_width = nil,
 		max_height = nil,
-		minimum_width = 30,
+		minimum_width = 25,
 		icons = {
 			ERROR = "",
 			WARN = "",

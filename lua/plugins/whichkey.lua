@@ -8,8 +8,8 @@ return {
 	config = function()
 		local wk = require("which-key")
 		wk.register({
-			["<leader>b"] = { name = "+buffer" },
-			["<leader>c"] = { name = "+code action" },
+			["<leader>e"] = { name = "+nvimtree" },
+			["<leader>c"] = { name = "+action" },
 			["<leader>g"] = { name = "+git" },
 			["<leader>r"] = { name = "+code" },
 			["<leader>m"] = { name = "+format" },
