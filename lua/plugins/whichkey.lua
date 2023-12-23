@@ -9,13 +9,14 @@ return {
 		local wk = require("which-key")
 		wk.register({
 			["<leader>e"] = { name = "+nvimtree" },
-			["<leader>c"] = { name = "+action" },
+			["<leader>c"] = { name = "+code action" },
 			["<leader>g"] = { name = "+git" },
 			["<leader>r"] = { name = "+code" },
 			["<leader>m"] = { name = "+format" },
 			["<leader>x"] = { name = "+trouble" },
 			["<leader>f"] = { name = "+telescope" },
-			["<leader>u"] = { name = "+todo" },
+			["<leader>u"] = { name = "+notify" },
+			["<leader>l"] = { name = "+lsp" },
 			["<leader>t"] = { name = "+terminal" },
 			-- FIX: why no action
 			["<leader>p"] = { name = "+swap_two" },

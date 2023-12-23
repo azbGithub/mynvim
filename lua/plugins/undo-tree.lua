@@ -5,6 +5,6 @@ return {
 		vim.g.undotree_TreeNodeShape = "-"
 	end,
 	keys = {
-		{ "<leader>uu", ":UndotreeToggle<CR>", desc = "undo tree toggle", silent = true, noremap = true },
+		{ "<leader>gu", ":UndotreeToggle<CR>", desc = "undo tree toggle", silent = true, noremap = true },
 	},
 }

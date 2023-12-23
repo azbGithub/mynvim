@@ -9,6 +9,20 @@ return {
 		require("todo-comments").setup()
 	end,
 	keys = {
-		{ "<leader>ut", ":TodoTelescope<CR>", desc = "todo list", silent = true, noremap = true },
+		{ "<leader>ft", ":TodoTelescope<CR>", desc = "todo list", silent = true, noremap = true },
+		{
+			"]t",
+			function()
+				require("todo-comments").jump_next()
+			end,
+			desc = "Next todo comment",
+		},
+		{
+			"[t",
+			function()
+				require("todo-comments").jump_prev()
+			end,
+			desc = "Previous todo comment",
+		},
 	},
 }
