@@ -26,9 +26,26 @@ return {
 				},
 				icons = {
 					glyphs = {
+						default = "",
+						symlink = "",
 						folder = {
-							arrow_closed = "", -- arrow when folder is closed
-							arrow_open = "", -- arrow when folder is open
+							arrow_open = "",
+							arrow_closed = "",
+							default = "",
+							open = "",
+							empty = "",
+							empty_open = "",
+							symlink = "",
+							symlink_open = "",
+						},
+						git = {
+							unstaged = "",
+							staged = "S",
+							unmerged = "",
+							renamed = "➜",
+							untracked = "U",
+							deleted = "",
+							ignored = "◌",
 						},
 					},
 				},
