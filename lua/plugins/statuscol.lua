@@ -1,7 +1,7 @@
 -- FIX: no action
 return {
 	"luukvbaal/statuscol.nvim",
-	event = "VeryLazy",
+	event = { "BufRead", "BufNew" },
 	config = function()
 		require("statuscol").setup()
 	end,
