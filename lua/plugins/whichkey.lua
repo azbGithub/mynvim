@@ -18,6 +18,7 @@ return {
 			["<leader>u"] = { name = "+notify" },
 			["<leader>l"] = { name = "+lsp" },
 			["<leader>t"] = { name = "+terminal" },
+			["<leader>d"] = { name = "+debug" },
 			-- FIX: why no action
 			["<leader>p"] = { name = "+swap_two" },
 			["<leader>n"] = { name = "+swap_one" },

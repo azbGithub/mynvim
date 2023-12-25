@@ -10,39 +10,47 @@ return {
 		"mfussenegger/nvim-dap-python",
 	},
 	config = function()
+		local opts = { noremap = true, silent = true }
+		opts.desc = "dap start"
 		vim.keymap.set("n", "<F5>", function()
 			require("telescope").extensions.dap.configurations({})
-		end)
+		end, opts)
+		opts.desc = "step_over"
 		vim.keymap.set("n", "<F10>", function()
 			require("dap").step_over()
 		end)
+		opts.desc = "step_into"
 		vim.keymap.set("n", "<F11>", function()
 			require("dap").step_into()
-		end)
+		end, opts)
+		opts.desc = "step_out"
 		vim.keymap.set("n", "<F12>", function()
 			require("dap").step_out()
-		end)
+		end, opts)
+		opts.desc = "breakpoint"
 		vim.keymap.set("n", "<Leader>db", function()
 			require("dap").toggle_breakpoint()
-		end)
+		end, opts)
+		opts.desc = "list_breakpoints"
 		vim.keymap.set("n", "<Leader>fB", function()
 			require("telescope").extensions.dap.list_breakpoints({})
-		end)
+		end, opts)
+		opts.desc = "set_breakpoint"
 		vim.keymap.set("n", "<Leader>dB", function()
 			require("dap").set_breakpoint()
-		end)
+		end, opts)
 		vim.keymap.set("n", "<Leader>lp", function()
 			require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-		end)
+		end, opts)
 		vim.keymap.set("n", "<Leader>dr", function()
 			require("dap").repl.open()
-		end)
+		end, opts)
 		vim.keymap.set("n", "<Leader>dl", function()
 			require("dap").run_last()
-		end)
+		end, opts)
 		vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
 			require("dap.ui.widgets").hover()
-		end)
+		end, opts)
 		require("nvim-dap-virtual-text").setup()
 		local dap, dapui = require("dap"), require("dapui")
 		dap.listeners.after.event_initialized["dapui_config"] = function()
