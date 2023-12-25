@@ -75,9 +75,18 @@ return {
 				}),
 			},
 			window = {
+				completion = {
+					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+					col_offset = -3,
+					side_padding = 0,
+					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+				},
 				documentation = {
 					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 				},
+			},
+			view = {
+				entries = { name = "custom", selection_order = "near_cursor" },
 			},
 		})
 	end,
