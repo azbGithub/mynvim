@@ -36,11 +36,11 @@ return {
 						["af"] = { query = "@call.outer", desc = "Select outer part of a function call" },
 						["if"] = { query = "@call.inner", desc = "Select inner part of a function call" },
 
-						["am"] = {
+						["af"] = {
 							query = "@function.outer",
 							desc = "Select outer part of a method/function definition",
 						},
-						["im"] = {
+						["if"] = {
 							query = "@function.inner",
 							desc = "Select inner part of a method/function definition",
 						},
@@ -66,11 +66,11 @@ return {
 					enable = true,
 					set_jumps = true, -- whether to set jumps in the jumplist
 					goto_next_start = {
-						["]f"] = { query = "@call.outer", desc = "Next function call start" },
-						["]m"] = { query = "@function.outer", desc = "Next method/function def start" },
-						["]c"] = { query = "@class.outer", desc = "Next class start" },
-						["]i"] = { query = "@conditional.outer", desc = "Next conditional start" },
-						["]l"] = { query = "@loop.outer", desc = "Next loop start" },
+						["]co"] = { query = "@call.outer", desc = "Next function call start" },
+						["]fo"] = { query = "@function.outer", desc = "Next method/function def start" },
+						["]cp"] = { query = "@class.outer", desc = "Next class start" },
+						["]io"] = { query = "@conditional.outer", desc = "Next conditional start" },
+						["]lo"] = { query = "@loop.outer", desc = "Next loop start" },
 
 						-- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
 						-- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.

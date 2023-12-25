@@ -6,12 +6,12 @@ return {
 			type = "default", -- Cursor movement calculation method, choose "default", "exp" (exponential) or "matrix".
 
 			cursor = "", -- Cursor shape (requires Nerd Font). Disabled in fancy mode.
-			texthl = "SmoothCursor", -- Highlight group. Default is { bg = nil, fg = "#FFD400" }. Disabled in fancy mode.
+			texthl = "SmoothCursor", -- Highlight group. Default is { bg = nil, fg = "#0000ff" }. Disabled in fancy mode.
 			linehl = nil, -- Highlights the line under the cursor, similar to 'cursorline'. "CursorLine" is recommended. Disabled in fancy mode.
 
 			fancy = {
-				enable = false, -- enable fancy mode
-				head = { cursor = "▷", texthl = "SmoothCursor", linehl = nil }, -- false to disable fancy head
+				enable = true, -- enable fancy mode
+				head = { cursor = "󰣉", texthl = "SmoothCursor", linehl = nil }, -- false to disable fancy head
 				body = {
 					{ cursor = "󰝥", texthl = "SmoothCursorRed" },
 					{ cursor = "󰝥", texthl = "SmoothCursorOrange" },
@@ -21,7 +21,7 @@ return {
 					{ cursor = ".", texthl = "SmoothCursorBlue" },
 					{ cursor = ".", texthl = "SmoothCursorPurple" },
 				},
-				tail = { cursor = nil, texthl = "SmoothCursor" }, -- false to disable fancy tail
+				tail = { cursor = "●", texthl = "SmoothCursor" }, -- false to disable fancy tail
 			},
 
 			matrix = { -- Loaded when 'type' is set to "matrix"

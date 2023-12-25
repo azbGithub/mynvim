@@ -26,6 +26,7 @@ vim.g.completeopt = "menu,menuone,noinsert,noselect"
 set.wildmenu = true
 vim.g.encoding = "utf-8"
 vim.g.fileencoding = "utf-8"
+vim.opt.exrc = true
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	pattern = { "*" },
 	callback = function()
