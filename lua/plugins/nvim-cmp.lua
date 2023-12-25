@@ -69,6 +69,7 @@ return {
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
+				field = { "abbr", "kind", "menu" },
 				format = lspkind.cmp_format({
 					maxwidth = 50,
 					ellipsis_char = "...",
@@ -76,10 +77,10 @@ return {
 			},
 			window = {
 				completion = {
-					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+					winhighlight = "Normal:Pmenu,FloatBorder:WarningMsg,Search:None",
 					col_offset = -3,
-					side_padding = 0,
-					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+					side_padding = 1,
+					border = "double",
 				},
 				documentation = {
 					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
