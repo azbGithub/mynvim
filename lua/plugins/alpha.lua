@@ -36,7 +36,6 @@ return {
 		}
 
 		dashboard.section.footer.val = {
-			"🧊 Hope that you enjoy using Nvim 😀😀😀",
 			"			https://github.com/azbGithub			 ",
 		}
 		-- Send config to alpha
