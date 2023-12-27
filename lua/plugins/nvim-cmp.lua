@@ -85,7 +85,8 @@ return {
 					winhighlight = "Normal:Pmenu,FloatBorder:WarningMsg,Search:None",
 					col_offset = -3,
 					side_padding = 1,
-					border = "double",
+					border = "rounded",
+					scrollbar = "║",
 				},
 				documentation = {
 					border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
