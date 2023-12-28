@@ -1,4 +1,4 @@
--- TODO: whichkey
+-- TODO: whichkey and figure out how it works
 return {
 	"mfussenegger/nvim-dap",
 	event = "BufRead",
