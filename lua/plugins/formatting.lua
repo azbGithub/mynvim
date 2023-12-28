@@ -1,32 +1,32 @@
 return {
-  'stevearc/conform.nvim',
+  "stevearc/conform.nvim",
   lazy = true,
-  event = { 'BufReadPre', 'BufNewFile' }, -- to disable, comment this out
+  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
   config = function()
-    local conform = require 'conform'
+    local conform = require "conform"
 
     conform.setup {
       formatters_by_ft = {
-        javascript = { 'prettier' },
-        typescript = { 'prettier' },
-        javascriptreact = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        svelte = { 'prettier' },
-        json = { 'prettier' },
-        graphql = { 'prettier' },
-        lua = { 'stylua' },
-        python = { 'isort', 'black' },
-        cpp = { 'clang-format' },
-        markdown = { { 'prettierd', 'prettier' } },
-        erb = { 'htmlbeautifier' },
-        html = { 'htmlbeautifier' },
-        bash = { 'beautysh' },
-        proto = { 'buf' },
-        rust = { 'rustfmt' },
-        yaml = { 'yamlfix' },
-        toml = { 'taplo' },
-        css = { { 'prettierd', 'prettier' } },
-        scss = { { 'prettierd', 'prettier' } },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        svelte = { "prettier" },
+        json = { "prettier" },
+        graphql = { "prettier" },
+        lua = { "stylua" },
+        python = { "isort", "black" },
+        cpp = { "clang-format" },
+        markdown = { { "prettierd", "prettier" } },
+        erb = { "htmlbeautifier" },
+        html = { "htmlbeautifier" },
+        bash = { "beautysh" },
+        proto = { "buf" },
+        rust = { "rustfmt" },
+        yaml = { "yamlfix" },
+        toml = { "taplo" },
+        css = { { "prettierd", "prettier" } },
+        scss = { { "prettierd", "prettier" } },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -35,12 +35,12 @@ return {
       },
     }
 
-    vim.keymap.set({ 'n', 'v' }, '<leader>cf', function()
+    vim.keymap.set({ "n", "v" }, "<leader>cf", function()
       conform.format {
         lsp_fallback = true,
         async = false,
         timeout_ms = 1000,
       }
-    end, { desc = 'Format file or range (in visual mode)' })
+    end, { desc = "Format file or range (in visual mode)" })
   end,
 }

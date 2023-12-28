@@ -1,14 +1,14 @@
 return {
-  'nvim-tree/nvim-tree.lua',
-  event = 'VeryLazy',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  "nvim-tree/nvim-tree.lua",
+  event = "VeryLazy",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    local nvimtree = require 'nvim-tree'
+    local nvimtree = require "nvim-tree"
     local keymap = vim.keymap -- for conciseness
-    keymap.set('n', '<leader>ee', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle file explorer' }) -- toggle file explorer
-    keymap.set('n', '<leader>ef', '<cmd>NvimTreeFindFile<CR>', { desc = 'Toggle file explorer on current file' }) -- toggle file explorer on current file
-    keymap.set('n', '<leader>ec', '<cmd>NvimTreeCollapse<CR>', { desc = 'Collapse file explorer' }) -- collapse file explorer
-    keymap.set('n', '<leader>er', '<cmd>NvimTreeRefresh<CR>', { desc = 'Refresh file explorer' }) -- refresh file explorer
+    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
+    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
+    keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
+    keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
 
     -- recommended settings from nvim-tree documentation
     vim.g.loaded_netrw = 1
@@ -31,26 +31,26 @@ return {
         },
         icons = {
           glyphs = {
-            default = '',
-            symlink = '',
+            default = "",
+            symlink = "",
             folder = {
-              arrow_open = '',
-              arrow_closed = '',
-              default = '',
-              open = '',
-              empty = '',
-              empty_open = '',
-              symlink = '',
-              symlink_open = '',
+              arrow_open = "",
+              arrow_closed = "",
+              default = "",
+              open = "",
+              empty = "",
+              empty_open = "",
+              symlink = "",
+              symlink_open = "",
             },
             git = {
-              unstaged = '',
-              staged = 'S',
-              unmerged = '',
-              renamed = '➜',
-              untracked = 'U',
-              deleted = '',
-              ignored = '◌',
+              unstaged = "",
+              staged = "S",
+              unmerged = "",
+              renamed = "➜",
+              untracked = "U",
+              deleted = "",
+              ignored = "◌",
             },
           },
         },
@@ -63,7 +63,7 @@ return {
         },
       },
       filters = {
-        custom = { '.DS_Store' },
+        custom = { ".DS_Store" },
       },
       git = {
         ignore = false,

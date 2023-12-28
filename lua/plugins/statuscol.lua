@@ -1,8 +1,8 @@
 -- FIX: no action
 return {
-  'luukvbaal/statuscol.nvim',
-  event = { 'BufRead', 'BufNew' },
+  "luukvbaal/statuscol.nvim",
+  event = { "BufRead", "BufNew" },
   config = function()
-    require('statuscol').setup()
+    require("statuscol").setup()
   end,
 }

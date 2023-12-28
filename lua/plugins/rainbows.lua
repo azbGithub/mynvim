@@ -1,12 +1,12 @@
 return {
-  'HiPhish/nvim-ts-rainbow2',
-  event = 'BufRead',
+  "HiPhish/nvim-ts-rainbow2",
+  event = "BufRead",
   config = function()
-    require('nvim-treesitter.configs').setup {
+    require("nvim-treesitter.configs").setup {
       rainbow = {
         enable = true,
-        query = 'rainbow-parens',
-        strategy = require('ts-rainbow').strategy.global,
+        query = "rainbow-parens",
+        strategy = require("ts-rainbow").strategy.global,
       },
     }
   end,

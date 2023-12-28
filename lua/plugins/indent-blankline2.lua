@@ -1,9 +1,9 @@
 return {
   {
-    'echasnovski/mini.indentscope',
-    event = 'BufRead',
+    "echasnovski/mini.indentscope",
+    event = "BufRead",
     opts = {
-      symbol = '╎',
+      symbol = "╎",
       options = { try_as_border = false, indent_at_cursor = true },
     },
   },

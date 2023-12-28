@@ -1,31 +1,31 @@
 return {
-  'akinsho/toggleterm.nvim',
-  version = '*',
+  "akinsho/toggleterm.nvim",
+  version = "*",
   config = true,
   keys = {
     {
-      '<leader>tf',
+      "<leader>tf",
       function()
         local count = vim.v.count1
-        require('toggleterm').toggle(count, 0, vim.loop.cwd(), 'float')
+        require("toggleterm").toggle(count, 0, vim.loop.cwd(), "float")
       end,
-      desc = 'ToggleTerm (float)',
+      desc = "ToggleTerm (float)",
     },
     {
-      '<leader>tv',
+      "<leader>tv",
       function()
         local count = vim.v.count1
-        require('toggleterm').toggle(count, 0, vim.loop.cwd(), 'vertical')
+        require("toggleterm").toggle(count, 0, vim.loop.cwd(), "vertical")
       end,
-      desc = 'ToggleTerm (vertical)',
+      desc = "ToggleTerm (vertical)",
     },
     {
-      '<leader>th',
+      "<leader>th",
       function()
         local count = vim.v.count1
-        require('toggleterm').toggle(count, 10, vim.loop.cwd(), 'horizontal')
+        require("toggleterm").toggle(count, 10, vim.loop.cwd(), "horizontal")
       end,
-      desc = 'ToggleTerm (horizontal)',
+      desc = "ToggleTerm (horizontal)",
     },
   },
 }

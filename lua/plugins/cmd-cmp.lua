@@ -1,27 +1,27 @@
 return {
-  'hrsh7th/cmp-cmdline',
-  keys = { ':', '/', '?' }, -- lazy load cmp on more keys along with insert mode
-  dependencies = { 'hrsh7th/nvim-cmp' },
+  "hrsh7th/cmp-cmdline",
+  keys = { ":", "/", "?" }, -- lazy load cmp on more keys along with insert mode
+  dependencies = { "hrsh7th/nvim-cmp" },
   opts = function()
-    local cmp = require 'cmp'
+    local cmp = require "cmp"
     return {
       {
-        type = '/',
+        type = "/",
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = 'buffer' },
+          { name = "buffer" },
         },
       },
       {
-        type = ':',
+        type = ":",
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          { name = 'path' },
+          { name = "path" },
         }, {
           {
-            name = 'cmdline',
+            name = "cmdline",
             option = {
-              ignore_cmds = { 'Man', '!' },
+              ignore_cmds = { "Man", "!" },
             },
           },
         }),
@@ -29,7 +29,7 @@ return {
     }
   end,
   config = function(_, opts)
-    local cmp = require 'cmp'
+    local cmp = require "cmp"
     vim.tbl_map(function(val)
       cmp.setup.cmdline(val.type, val)
     end, opts)

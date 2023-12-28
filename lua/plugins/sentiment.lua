@@ -1,7 +1,7 @@
 return {
-  'utilyre/sentiment.nvim',
-  version = '*',
-  event = 'VeryLazy', -- keep for lazy loading
+  "utilyre/sentiment.nvim",
+  version = "*",
+  event = "VeryLazy", -- keep for lazy loading
   opts = {
     -- config
   },

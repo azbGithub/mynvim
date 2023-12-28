@@ -1,7 +1,7 @@
 return {
-  'windwp/nvim-spectre',
-  event = 'BufRead',
+  "windwp/nvim-spectre",
+  event = "BufRead",
   config = function()
-    require('spectre').setup()
+    require("spectre").setup()
   end,
 }
