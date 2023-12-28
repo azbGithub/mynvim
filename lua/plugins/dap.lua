@@ -39,7 +39,7 @@ return {
 		vim.keymap.set("n", "<Leader>dB", function()
 			require("dap").set_breakpoint()
 		end, opts)
-		vim.keymap.set("n", "<Leader>lp", function()
+		vim.keymap.set("n", "<Leader>dp", function()
 			require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 		end, opts)
 		vim.keymap.set("n", "<Leader>dr", function()
