@@ -2,12 +2,12 @@ return {
   'CRAG666/code_runner.nvim',
   keys = {
     {
-      '<leader>rr',
+      '<leader>cr',
       '<cmd>RunCode<CR>',
       desc = 'run code',
     },
     {
-      '<leader>rc',
+      '<leader>cc',
       '<cmd>RunClose<CR>',
       desc = 'close code-runner',
     },

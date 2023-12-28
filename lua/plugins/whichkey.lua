@@ -1,31 +1,24 @@
 return {
   'folke/which-key.nvim',
   event = 'VeryLazy',
-  init = function()
+  config = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
-  end,
-  config = function()
-    local wk = require 'which-key'
-    wk.register {
-      ['<leader>e'] = { name = '+nvimtree' },
-      ['<leader>c'] = { name = '+code action' },
-      ['<leader>g'] = { name = '+git' },
-      ['<leader>r'] = { name = '+code' },
-      ['<leader>m'] = { name = '+format' },
-      ['<leader>x'] = { name = '+trouble' },
-      ['<leader>f'] = { name = '+telescope' },
-      ['<leader>u'] = { name = '+notify' },
-      ['<leader>l'] = { name = '+lsp' },
-      ['<leader>t'] = { name = '+terminal' },
-      ['<leader>d'] = { name = '+debug' },
-      -- FIX: why no action
-      ['<leader>p'] = { name = '+swap_two' },
-      ['<leader>n'] = { name = '+swap_one' },
-    }
-  end,
-  opts = {
-    {
+    require('which-key').setup {
+      require('which-key').register {
+        ['<leader>e'] = { name = '+󰙅 nvimtree' },
+        ['<leader>c'] = { name = '+󰨞 code' },
+        ['<leader>g'] = { name = '+ git' },
+        ['<leader>x'] = { name = '+ trouble' },
+        ['<leader>f'] = { name = '+ telescope' },
+        ['<leader>u'] = { name = '+notify' },
+        ['<leader>l'] = { name = '+ lsp' },
+        ['<leader>t'] = { name = '+ terminal' },
+        ['<leader>d'] = { name = '+ debug' },
+        -- FIX: why no action
+        ['<leader>p'] = { name = '+swap_two' },
+        ['<leader>n'] = { name = '+swap_one' },
+      },
       plugins = {
         marks = true,
         registers = true,
@@ -49,8 +42,8 @@ return {
       },
       icons = {
         breadcrumb = '»', -- symbol used in the command line area that shows your active key combo
-        separator = '➜', -- symbol used between a key and it's label
-        group = '+', -- symbol prepended to a group
+        separator = '', -- symbol used between a key and it's label
+        group = ' ', -- symbol prepended to a group
       },
       popup_mappings = {
         scroll_down = '<c-d>', -- binding to scroll down inside the popup
@@ -68,7 +61,7 @@ return {
         height = { min = 4, max = 25 }, -- min and max height of the columns
         width = { min = 20, max = 50 }, -- min and max width of the columns
         spacing = 3, -- spacing between columns
-        align = 'left', -- align columns left, center or right
+        align = 'center', -- align columns left, center or right
       },
       ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
       hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', '^:', '^ ', '^call ', '^lua ' }, -- hide mapping boilerplate
@@ -95,6 +88,6 @@ return {
         buftypes = {},
         filetypes = {},
       },
-    },
-  },
+    }
+  end,
 }

@@ -55,7 +55,7 @@ return {
       keymap.set('n', '<leader>D', '<cmd>Telescope diagnostics bufnr=0<CR>', opts) -- show  diagnostics for file
 
       opts.desc = 'Show line diagnostics'
-      keymap.set('n', '<leader>la', require('telescope.builtin').diagnostics, opts) -- show diagnostics for line
+      keymap.set('n', '<leader>ld', require('telescope.builtin').diagnostics, opts) -- show diagnostics for line
 
       opts.desc = 'Show documentation for what is under cursor'
       keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts) -- show documentation for what is under cursor
