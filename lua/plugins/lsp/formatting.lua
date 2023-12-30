@@ -12,7 +12,7 @@ return {
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
         svelte = { "prettier" },
-        json = { "prettier" },
+        json = { "fixjson" },
         graphql = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },

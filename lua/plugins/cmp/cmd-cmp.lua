@@ -1,3 +1,4 @@
+--FIXME: cmd completion
 return {
   "hrsh7th/cmp-cmdline",
   keys = { ":", "/", "?" }, -- lazy load cmp on more keys along with insert mode
@@ -7,14 +8,30 @@ return {
     return {
       {
         type = "/",
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = {
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+        },
         sources = {
           { name = "buffer" },
         },
       },
       {
         type = ":",
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = {
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+        },
         sources = cmp.config.sources({
           { name = "path" },
         }, {

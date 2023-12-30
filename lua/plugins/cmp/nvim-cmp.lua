@@ -42,11 +42,11 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "path" }, -- file system paths
+        { name = "buffer" }, -- text within current buffer
         { name = "pandoc_references" },
         { name = "latex_symbols" },
         { name = "emoji" },
         { name = "calc" },
-        { name = "buffer" }, -- text within current buffer
       },
       mapping = cmp.mapping.preset.insert {
         ["<S-Tab>"] = cmp.config.disable,
@@ -62,6 +62,8 @@ return {
             local entry = cmp.get_selected_entry()
             if not entry then
               cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
             else
               if has_words_before() then
                 cmp.confirm {

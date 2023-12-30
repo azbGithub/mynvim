@@ -1,3 +1,4 @@
+-- TODO: figure out how it works
 return {
   "kevinhwang91/nvim-bqf",
   event = { "BufRead", "BufNew" },

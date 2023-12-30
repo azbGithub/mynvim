@@ -1,7 +1,11 @@
 return {
+  -- NOTE:	nvimtools/none-ls.nvim and jay-babu/mason-null-ls.nvim has been unloaded
+
+  -- FIX: no action
   "nvimtools/none-ls.nvim", -- configure formatters & linters
+  enabled = false,
   lazy = true,
-  -- event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
+  event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
   dependencies = {
     "jay-babu/mason-null-ls.nvim",
   },

@@ -17,6 +17,8 @@ return {
     require("neodev").setup()
     require("fidget").setup()
     require("lspsaga").setup()
+    require("clangd_extensions.inlay_hints").setup_autocmd()
+    require("clangd_extensions.inlay_hints").set_inlay_hints()
     -- import lspconfig plugin
     local lspconfig = require "lspconfig"
 
@@ -82,6 +84,12 @@ return {
     }
     -- configure c++ server
     lspconfig["clangd"].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+    -- config java server
+    -- FIX: Missing jdk17
+    lspconfig["jdtls"].setup {
       capabilities = capabilities,
       on_attach = on_attach,
     }
