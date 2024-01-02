@@ -1,6 +1,7 @@
 -- TODO: Setting up language configuration cpp, python, rust ....
 return {
   "Wansmer/treesj",
+  event = "VeryLazy",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   config = function()
     require("treesj").setup {

@@ -1,14 +1,15 @@
+vim.loader.enable()
 local set = vim.o
 set.tabstop = 2
 set.softtabstop = 2
-set.shiftwidth = 2
+set.shiftwidth = 4
 set.number = true
 set.relativenumber = true
-set.clipboard = 'unnamed'
-set.shell = 'pwsh'
-set.shellcmdflag = '-command'
+set.clipboard = "unnamed"
+set.shell = "pwsh"
+set.shellcmdflag = "-command"
 set.shellquote = '"'
-set.shellxquote = ''
+set.shellxquote = ""
 set.scrolloff = 8
 set.sidescrolloff = 8
 set.ignorecase = true
@@ -22,17 +23,23 @@ set.smartindent = true
 set.ignorecase = true
 set.smartcase = true
 set.termguicolors = true
-vim.g.completeopt = 'menu,menuone,noinsert,noselect'
+-- vim.g.completeopt = "menu,menuone,noinsert,noselect"
 set.wildmenu = true
-vim.g.encoding = 'utf-8'
-vim.g.fileencoding = 'utf-8'
+vim.g.encoding = "utf-8"
+vim.g.fileencoding = "utf-8"
 vim.opt.exrc = true
-vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
-  pattern = { '*' },
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  pattern = { "*" },
   callback = function()
     vim.highlight.on_yank {
       timeout = 300,
     }
   end,
 })
-vim.loader.enable()
+vim.cmd "au ColorScheme * hi Normal ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi NormalNC ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi MsgArea ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi TelescopeBorder ctermbg=none guibg=none"
+vim.cmd "au ColorScheme * hi NvimTreeNormal ctermbg=none guibg=none"
+vim.cmd "let &fcs='eob: '"

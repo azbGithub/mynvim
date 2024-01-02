@@ -17,6 +17,7 @@ return {
     "hrsh7th/cmp-emoji",
     "jc-doyle/cmp-pandoc-references",
     "kdheepak/cmp-latex-symbols",
+    "hrsh7th/cmp-cmdline",
   },
   config = function()
     local cmp = require "cmp"
@@ -62,8 +63,6 @@ return {
             local entry = cmp.get_selected_entry()
             if not entry then
               cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
             else
               if has_words_before() then
                 cmp.confirm {
@@ -103,6 +102,20 @@ return {
       experimental = {
         ghost_text = true,
       },
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      }),
+
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources {
+          { name = "path" },
+          { name = "cmdline" },
+        },
+      }),
     }
   end,
 }
