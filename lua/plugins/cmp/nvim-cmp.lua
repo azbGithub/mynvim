@@ -1,8 +1,3 @@
-local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
-end
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "BufRead", "BufNew" },
@@ -17,9 +12,13 @@ return {
     "hrsh7th/cmp-emoji",
     "jc-doyle/cmp-pandoc-references",
     "kdheepak/cmp-latex-symbols",
-    "hrsh7th/cmp-cmdline",
   },
   config = function()
+    local has_words_before = function()
+      unpack = unpack or table.unpack
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+    end
     local cmp = require "cmp"
 
     local luasnip = require "luasnip"
@@ -63,6 +62,8 @@ return {
             local entry = cmp.get_selected_entry()
             if not entry then
               cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+            elseif luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
             else
               if has_words_before() then
                 cmp.confirm {
@@ -78,22 +79,41 @@ return {
       },
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
-        field = { "abbr", "kind", "menu" },
-        format = lspkind.cmp_format {
-          maxwidth = 50,
-          ellipsis_char = "...",
-        },
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          local kind = require("lspkind").cmp_format { mode = "symbol_text", maxwidth = 50 }(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = " " .. (strings[1] or "") .. " "
+          kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+          return kind
+        end,
       },
+      -- formatting = {
+      --   format = lspkind.cmp_format {
+      --     mode = "symbol_text",
+      --     menu = {
+      --       buffer = "[Buffer]",
+      --       nvim_lsp = "[LSP]",
+      --       luasnip = "[LuaSnip]",
+      --       nvim_lua = "[Lua]",
+      --       latex_symbols = "[Latex]",
+      --     },
+      --   },
+      --   field = { "abbr", "kind", "menu" },
+      -- },
       window = {
         completion = {
-          winhighlight = "Normal:Pmenu,FloatBorder:WarningMsg,Search:None",
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
           col_offset = -3,
-          side_padding = 1,
+          side_padding = 0,
           border = "rounded",
-          scrollbar = "║",
+          scrollbar = true,
         },
         documentation = {
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+          border = "rounded",
+          scrollbar = true,
         },
       },
       view = {
@@ -102,20 +122,6 @@ return {
       experimental = {
         ghost_text = true,
       },
-      cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      }),
-
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources {
-          { name = "path" },
-          { name = "cmdline" },
-        },
-      }),
     }
   end,
 }

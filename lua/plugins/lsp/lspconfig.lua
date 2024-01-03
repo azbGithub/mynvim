@@ -14,9 +14,41 @@ return {
   },
   config = function()
     require("neoconf").setup()
-    require("neodev").setup()
     require("fidget").setup()
-    require("lspsaga").setup()
+    require("neodev").setup {
+      lspconfig = true,
+      override = function(_, library)
+        library.enabled = true
+        library.plugins = true
+        library.types = true
+      end,
+    }
+    require("lspsaga").setup {
+      outline = {
+        layout = "float",
+        keys = {
+          quit = "Q",
+          toggle_or_jump = "<cr>",
+        },
+      },
+      finder = {
+        keys = {
+          quit = "Q",
+          edit = "<C-c>j",
+          toggle_or_open = "<cr>",
+        },
+      },
+      definition = {
+        keys = {
+          edit = "<C-c>j",
+        },
+      },
+      code_action = {
+        keys = {
+          quit = "Q",
+        },
+      },
+    }
     require("clangd_extensions.inlay_hints").setup_autocmd()
     require("clangd_extensions.inlay_hints").set_inlay_hints()
     -- import lspconfig plugin
@@ -64,6 +96,8 @@ return {
 
       opts.desc = "Restart LSP"
       keymap.set("n", "<leader>ls", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+      opts.desc = "Outline"
+      keymap.set("<leader>ot", "<cmd>Lspsaga outline<CR>", opts)
     end
 
     -- used to enable autocompletion (assign to every lsp server config)

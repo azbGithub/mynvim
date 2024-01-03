@@ -20,11 +20,13 @@ return {
         ["==="] = "!==",
       },
     }
-
+    local opts = { noremap = true, silent = true }
+    opts.desc = "quick change 1 to 0"
     vim.keymap.set(
       "n",
       "<leader><space>", -- <space><space>
-      "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>"
+      "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>",
+      opts
     )
   end,
 }
