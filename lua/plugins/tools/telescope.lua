@@ -91,6 +91,7 @@ return {
       }
       telescope.load_extension "ui-select"
       telescope.load_extension "fzf"
+      telescope.load_extension "dap"
     end,
     keys = {
       {
@@ -102,6 +103,11 @@ return {
         "<leader>fg",
         "<cmd>Telescope live_grep<cr>",
         desc = "live_grep",
+      },
+      {
+        "<leader>fr",
+        "<cmd>Telescope oldfiles<cr>",
+        desc = "old_files",
       },
     },
   },

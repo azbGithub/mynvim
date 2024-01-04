@@ -43,6 +43,6 @@ return {
       end, vim.tbl_values(require("bufferline.config").highlights))
     )
     require("transparent").clear_prefix "BufferLine"
-    require("transparent").clear_prefix "lualine"
+    -- require("transparent").clear_prefix "lualine"
   end,
 }
