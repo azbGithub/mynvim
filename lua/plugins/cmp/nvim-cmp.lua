@@ -23,7 +23,7 @@ return {
 
     local luasnip = require "luasnip"
 
-    -- local lspkind = require "lspkind"
+    local lspkind = require "lspkind"
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -79,30 +79,30 @@ return {
       },
       -- configure lspkind for vs-code like pictograms in completion menu
       -- NOTE: vim-grubox theme
-      formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-          local kind = require("lspkind").cmp_format { mode = "symbol_text", maxwidth = 50 }(entry, vim_item)
-          local strings = vim.split(kind.kind, "%s", { trimempty = true })
-          kind.kind = " " .. (strings[1] or "") .. " "
-          kind.menu = "    (" .. (strings[2] or "") .. ")"
-          return kind
-        end,
-      },
-      --
       -- formatting = {
-      --   format = lspkind.cmp_format {
-      --     mode = "symbol_text",
-      --     menu = {
-      --       buffer = "[Buffer]",
-      --       nvim_lsp = "[LSP]",
-      --       luasnip = "[LuaSnip]",
-      --       nvim_lua = "[Lua]",
-      --       latex_symbols = "[Latex]",
-      --     },
-      --   },
-      --   field = { "abbr", "kind", "menu" },
+      --   fields = { "kind", "abbr", "menu" },
+      --   format = function(entry, vim_item)
+      --     local kind = require("lspkind").cmp_format { mode = "symbol_text", maxwidth = 50 }(entry, vim_item)
+      --     local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      --     kind.kind = " " .. (strings[1] or "") .. " "
+      --     kind.menu = "    (" .. (strings[2] or "") .. ")"
+      --     return kind
+      --   end,
       -- },
+      --
+      formatting = {
+        format = lspkind.cmp_format {
+          mode = "symbol_text",
+          menu = {
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[Latex]",
+          },
+        },
+        field = { "abbr", "kind", "menu" },
+      },
       window = {
         completion = {
           winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
